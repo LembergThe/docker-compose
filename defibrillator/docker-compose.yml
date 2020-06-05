@@ -1,0 +1,21 @@
+version: '3'
+services:
+  client:
+    image: def-client
+    ports:
+      - "80:80"
+    environment:
+      NODE_ENV: production
+      BACKEND_URL: server:8080
+  server:
+    image: def-back
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: production
+      MONGODB_HOST: mongodb
+  mongodb:
+    image: "mongo:4.2.7-bionic"
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret

@@ -1,0 +1,8 @@
+use defibrillator;
+db.createUser(
+  {
+    user: "defibrillator_user",
+    pwd: passwordPrompt(),  // or cleartext password
+    roles: ["dbAdmin"]
+  }
+)
